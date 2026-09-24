@@ -1,16 +1,16 @@
 {
-  "name": "public--paths-ignore",
+  "name": "fork--tags",
   "on": {
-    "public": {
-      "paths-ignore": [
-        "**"
+    "fork": {
+      "tags": [
+        "never-this-tag"
       ]
     }
   },
   "permissions": {},
   "jobs": {
     "probe": {
-      "name": "public--paths-ignore",
+      "name": "fork--tags",
       "runs-on": "ubuntu-latest",
       "timeout-minutes": 5,
       "steps": [
@@ -27,7 +27,7 @@
         {
           "name": "Execute complete event probe",
           "env": {
-            "LAB_CASE": "public--paths-ignore",
+            "LAB_CASE": "fork--tags",
             "EVENT_FAMILY": "${{ github.event_name }}",
             "EXPR_EVENT": "${{ toJSON(github.event) }}",
             "EXPR_REF": "${{ github.ref }}",

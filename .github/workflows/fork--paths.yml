@@ -1,7 +1,7 @@
 {
-  "name": "public--paths",
+  "name": "fork--paths",
   "on": {
-    "public": {
+    "fork": {
       "paths": [
         "never/matching/**"
       ]
@@ -10,7 +10,7 @@
   "permissions": {},
   "jobs": {
     "probe": {
-      "name": "public--paths",
+      "name": "fork--paths",
       "runs-on": "ubuntu-latest",
       "timeout-minutes": 5,
       "steps": [
@@ -27,7 +27,7 @@
         {
           "name": "Execute complete event probe",
           "env": {
-            "LAB_CASE": "public--paths",
+            "LAB_CASE": "fork--paths",
             "EVENT_FAMILY": "${{ github.event_name }}",
             "EXPR_EVENT": "${{ toJSON(github.event) }}",
             "EXPR_REF": "${{ github.ref }}",

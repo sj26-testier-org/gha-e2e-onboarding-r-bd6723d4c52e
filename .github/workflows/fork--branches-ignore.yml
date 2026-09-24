@@ -1,7 +1,7 @@
 {
-  "name": "public--branches-ignore",
+  "name": "fork--branches-ignore",
   "on": {
-    "public": {
+    "fork": {
       "branches-ignore": [
         "**"
       ]
@@ -10,7 +10,7 @@
   "permissions": {},
   "jobs": {
     "probe": {
-      "name": "public--branches-ignore",
+      "name": "fork--branches-ignore",
       "runs-on": "ubuntu-latest",
       "timeout-minutes": 5,
       "steps": [
@@ -27,7 +27,7 @@
         {
           "name": "Execute complete event probe",
           "env": {
-            "LAB_CASE": "public--branches-ignore",
+            "LAB_CASE": "fork--branches-ignore",
             "EVENT_FAMILY": "${{ github.event_name }}",
             "EXPR_EVENT": "${{ toJSON(github.event) }}",
             "EXPR_REF": "${{ github.ref }}",
