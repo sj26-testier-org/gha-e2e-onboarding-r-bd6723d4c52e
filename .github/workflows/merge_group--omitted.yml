@@ -1,19 +1,17 @@
 {
-  "name": "branch_protection_rule--tags",
+  "name": "merge_group--omitted",
   "on": {
-    "branch_protection_rule": {
+    "merge_group": {},
+    "pull_request": {
       "types": [
-        "created"
-      ],
-      "tags": [
-        "never-this-tag"
+        "opened"
       ]
     }
   },
   "permissions": {},
   "jobs": {
     "probe": {
-      "name": "branch_protection_rule--tags",
+      "name": "Held queue gate",
       "runs-on": "ubuntu-latest",
       "timeout-minutes": 5,
       "steps": [
@@ -30,7 +28,7 @@
         {
           "name": "Execute complete event probe",
           "env": {
-            "LAB_CASE": "branch_protection_rule--tags",
+            "LAB_CASE": "merge_group--omitted",
             "EVENT_FAMILY": "${{ github.event_name }}",
             "EXPR_EVENT": "${{ toJSON(github.event) }}",
             "EXPR_REF": "${{ github.ref }}",

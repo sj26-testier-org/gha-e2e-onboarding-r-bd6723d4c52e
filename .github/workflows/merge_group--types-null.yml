@@ -1,19 +1,14 @@
 {
-  "name": "branch_protection_rule--paths-ignore",
+  "name": "merge_group--types-null",
   "on": {
-    "branch_protection_rule": {
-      "types": [
-        "created"
-      ],
-      "paths-ignore": [
-        "**"
-      ]
+    "merge_group": {
+      "types": null
     }
   },
   "permissions": {},
   "jobs": {
     "probe": {
-      "name": "branch_protection_rule--paths-ignore",
+      "name": "merge_group--types-null",
       "runs-on": "ubuntu-latest",
       "timeout-minutes": 5,
       "steps": [
@@ -30,7 +25,7 @@
         {
           "name": "Execute complete event probe",
           "env": {
-            "LAB_CASE": "branch_protection_rule--paths-ignore",
+            "LAB_CASE": "merge_group--types-null",
             "EVENT_FAMILY": "${{ github.event_name }}",
             "EXPR_EVENT": "${{ toJSON(github.event) }}",
             "EXPR_REF": "${{ github.ref }}",

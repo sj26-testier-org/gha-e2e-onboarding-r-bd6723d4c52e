@@ -1,19 +1,16 @@
 {
-  "name": "branch_protection_rule--tags-ignore",
+  "name": "merge_group--nonmatching",
   "on": {
-    "branch_protection_rule": {
+    "merge_group": {
       "types": [
-        "created"
-      ],
-      "tags-ignore": [
-        "**"
+        "destroyed"
       ]
     }
   },
   "permissions": {},
   "jobs": {
     "probe": {
-      "name": "branch_protection_rule--tags-ignore",
+      "name": "merge_group--nonmatching",
       "runs-on": "ubuntu-latest",
       "timeout-minutes": 5,
       "steps": [
@@ -30,7 +27,7 @@
         {
           "name": "Execute complete event probe",
           "env": {
-            "LAB_CASE": "branch_protection_rule--tags-ignore",
+            "LAB_CASE": "merge_group--nonmatching",
             "EVENT_FAMILY": "${{ github.event_name }}",
             "EXPR_EVENT": "${{ toJSON(github.event) }}",
             "EXPR_REF": "${{ github.ref }}",
