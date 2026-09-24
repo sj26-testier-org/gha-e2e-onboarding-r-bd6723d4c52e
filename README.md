@@ -1,3 +1,1 @@
-# Disposable event fixture
-
-Public-safe dummy content only.
+# Public-safe held-pathway dummy fixture

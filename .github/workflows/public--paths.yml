@@ -1,0 +1,42 @@
+{
+  "name": "public--paths",
+  "on": {
+    "public": {
+      "paths": [
+        "never/matching/**"
+      ]
+    }
+  },
+  "permissions": {},
+  "jobs": {
+    "probe": {
+      "name": "public--paths",
+      "runs-on": "ubuntu-latest",
+      "timeout-minutes": 5,
+      "steps": [
+        {
+          "uses": "actions/checkout@v4"
+        },
+        {
+          "uses": "actions/setup-node@v4",
+          "with": {
+            "node-version": "22",
+            "token": ""
+          }
+        },
+        {
+          "name": "Execute complete event probe",
+          "env": {
+            "LAB_CASE": "public--paths",
+            "EVENT_FAMILY": "${{ github.event_name }}",
+            "EXPR_EVENT": "${{ toJSON(github.event) }}",
+            "EXPR_REF": "${{ github.ref }}",
+            "EXPR_SHA": "${{ github.sha }}",
+            "EXPR_ACTION": "${{ github.event.action }}"
+          },
+          "run": "node probe.cjs"
+        }
+      ]
+    }
+  }
+}
