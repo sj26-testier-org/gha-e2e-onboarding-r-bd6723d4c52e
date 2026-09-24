@@ -1,16 +1,19 @@
 {
-  "name": "fork--paths-ignore",
+  "name": "branch_protection_rule--tags",
   "on": {
-    "fork": {
-      "paths-ignore": [
-        "**"
+    "branch_protection_rule": {
+      "types": [
+        "created"
+      ],
+      "tags": [
+        "never-this-tag"
       ]
     }
   },
   "permissions": {},
   "jobs": {
     "probe": {
-      "name": "fork--paths-ignore",
+      "name": "branch_protection_rule--tags",
       "runs-on": "ubuntu-latest",
       "timeout-minutes": 5,
       "steps": [
@@ -27,7 +30,7 @@
         {
           "name": "Execute complete event probe",
           "env": {
-            "LAB_CASE": "fork--paths-ignore",
+            "LAB_CASE": "branch_protection_rule--tags",
             "EVENT_FAMILY": "${{ github.event_name }}",
             "EXPR_EVENT": "${{ toJSON(github.event) }}",
             "EXPR_REF": "${{ github.ref }}",
